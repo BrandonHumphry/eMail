@@ -16,11 +16,11 @@ function App() {
           <Sidebar />
           {/* switch mail content */}
           <Switch>
-            <Route path="/">
-              <EmailList />
-            </Route>
             <Route path="/mail">
               <Mail />
+            </Route>
+            <Route path="/">
+              <EmailList />
             </Route>
           </Switch>
         </div>

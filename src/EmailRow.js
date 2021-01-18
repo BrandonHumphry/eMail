@@ -4,10 +4,13 @@ import { IconButton } from "@material-ui/core";
 import LabelImportantOutlinedIcon from "@material-ui/icons/LabelImportantOutlined";
 import StarOutlineIcon from "@material-ui/icons/StarOutline";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
+import { useHistory } from "react-router-dom";
 
-function EmailRow({ title, subject, description, time, id }) {
+function EmailRow({ id, title, subject, description, time }) {
+  const history = useHistory();
+
   return (
-    <div className="emailRow">
+    <div onClick={() => history.push("/mail")} className="emailRow">
       <div className="emailRow__options">
         <IconButton>
           <CheckBoxOutlineBlankIcon />
