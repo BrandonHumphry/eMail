@@ -20,34 +20,35 @@ function Mail() {
   return (
     <div className="mail">
       <div className="mail__tools">
-        <div className="mail_toolsLeft"></div>
-        <IconButton onClick={() => history.push("/")}>
-          <ArrowBackIcon />
-        </IconButton>
-        <IconButton>
-          <MoveToInboxIcon />
-        </IconButton>
-        <IconButton>
-          <ErrorIcon />
-        </IconButton>
-        <IconButton>
-          <DeleteIcon />
-        </IconButton>
-        <IconButton>
-          <EmailIcon />
-        </IconButton>
-        <IconButton>
-          <WatchLaterIcon />
-        </IconButton>
-        <IconButton>
-          <CheckCircleIcon />
-        </IconButton>
-        <IconButton>
-          <LabelImportantIcon />
-        </IconButton>
-        <IconButton>
-          <MoreVertIcon />
-        </IconButton>
+        <div className="mail_toolsLeft">
+          <IconButton onClick={() => history.push("/")}>
+            <ArrowBackIcon />
+          </IconButton>
+          <IconButton>
+            <MoveToInboxIcon />
+          </IconButton>
+          <IconButton>
+            <ErrorIcon />
+          </IconButton>
+          <IconButton>
+            <DeleteIcon />
+          </IconButton>
+          <IconButton>
+            <EmailIcon />
+          </IconButton>
+          <IconButton>
+            <WatchLaterIcon />
+          </IconButton>
+          <IconButton>
+            <CheckCircleIcon />
+          </IconButton>
+          <IconButton>
+            <LabelImportantIcon />
+          </IconButton>
+          <IconButton>
+            <MoreVertIcon />
+          </IconButton>
+        </div>
         <div className="mail_toolsRight">
           <IconButton>
             <UnfoldMoreIcon />
@@ -58,6 +59,18 @@ function Mail() {
           <IconButton>
             <ExitToAppIcon />
           </IconButton>
+        </div>
+      </div>
+      <div className="mail__body">
+        <div className="mail__bodyHeader">
+          <h2>Subject</h2>
+          <LabelImportantIcon className="mail__important" />
+          <p>Title</p>
+          <p className="mail__time">10pm</p>
+        </div>
+
+        <div className="mail__message">
+          <p>This is a mail message</p>
         </div>
       </div>
     </div>
