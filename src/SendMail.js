@@ -31,7 +31,9 @@ function SendMail() {
           type="email"
           ref={register({ required: true })}
         />
-        {errors.to && <p className="sendMail__error">"To" is required</p>}
+        {errors.to && (
+          <p className="sendMail__error">Please enter an email above</p>
+        )}
         <input
           name="subject"
           placeholder="Subject"
@@ -39,7 +41,7 @@ function SendMail() {
           ref={register({ required: true })}
         />
         {errors.subject && (
-          <p className="sendMail__error">"Subject" is required</p>
+          <p className="sendMail__error">Please enter a subject above</p>
         )}
         <input
           name="message"
@@ -49,10 +51,17 @@ function SendMail() {
           ref={register({ required: true })}
         />
         {errors.message && (
-          <p className="sendMail__error">"Message" is required</p>
+          <p className="sendMail__error">Please enter a message above</p>
         )}
         <div className="sendMail__options">
-          <Button className="sendMail__send">Send</Button>
+          <Button
+            className="sendMail__send"
+            variant="contained"
+            color="secondary"
+            type="submit"
+          >
+            Send
+          </Button>
         </div>
       </form>
     </div>
