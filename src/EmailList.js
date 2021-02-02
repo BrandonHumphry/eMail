@@ -9,12 +9,34 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import InboxIcon from "@material-ui/icons/Inbox";
 import PeopleIcon from "@material-ui/icons/People";
 import LocalOfferIcon from "@material-ui/icons/LocalOffer";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./EmailList.css";
 import Section from "./Section";
 import EmailRow from "./EmailRow";
+import { db } from "./firebase";
 
 function EmailList() {
+  const [emails, setEmails] = useState([]);
+
+  useEffect(() => {
+    // go into the firebase db and find the collection called emails
+    db.collection("emails")
+      // order email collection by timestamp and description
+      .orderBy("timestamp", "desc")
+      // onSnapshot is a realtime listener, takes a snapshot whenever a doc gets added, modified, or deleted
+      // rerun the onSnapshot code below
+      .onSnapshot(snapshot =>
+        // anytime a change happens, update the emails on the front end
+        setEmails(
+          // map through the snapshots and get the id of each and data
+          snapshot.docs.map(doc => ({
+            id: doc.id,
+            data: doc.data()
+          }))
+        )
+      );
+  }, []);
+
   return (
     <div className="emailList">
       <div className="emailList__settings">
@@ -51,6 +73,16 @@ function EmailList() {
         <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
       </div>
       <div className="emailList__list">
+        {emails.map(({ id, data: { to, subject, message, timestamp } }) => (
+          <EmailRow
+            id={id}
+            key={id}
+            title={to}
+            subject={subject}
+            description={message}
+            time={new Date(timestamp?.seconds * 1000).toUTCString()}
+          />
+        ))}
         <EmailRow
           title="Sale"
           subject="You've been invited to our sale"
