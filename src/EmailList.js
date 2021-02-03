@@ -83,12 +83,12 @@ function EmailList() {
             time={new Date(timestamp?.seconds * 1000).toUTCString()}
           />
         ))}
-        <EmailRow
+        {/* <EmailRow
           title="Sale"
           subject="You've been invited to our sale"
           description="Claim your offer today"
           time="10pm"
-        />
+        /> */}
       </div>
     </div>
   );
