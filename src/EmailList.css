@@ -1,4 +1,4 @@
-.emaiList {
+.emailList {
   flex: 1;
   overflow: scroll;
 }
@@ -18,4 +18,18 @@
   position: sticky;
   top: 0;
   display: flex;
+}
+
+.emailList__list {
+  padding-bottom: 20%;
+}
+
+/* hide scrollbar for Chrome, Safari, Opera */
+.emailList::-webkit-scrollbar {
+  display: none;
+}
+
+.emailList {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
